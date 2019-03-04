@@ -1,4 +1,5 @@
 # deptcase
+a Test case provided by Dept to mimic the design of their site.
 
 ## Project setup
 ```
