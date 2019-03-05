@@ -1,5 +1,7 @@
 import styled from 'vue-styled-components'
 
+export const MenuItme = styled.ul``;
+
 export const StyledModal = styled.div`
   position: fixed;
   z-index: 9998;
