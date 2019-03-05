@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "npm i -g graphql-faker",
     "start": "npm run serve-backend & npm run serve",
-    "serve-backend": "graphql-faker src/database/schema.idl",
+    "serve-backend": "graphql-faker ./src/database/schema.idl",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"

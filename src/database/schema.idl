@@ -3,6 +3,8 @@ type Company {
   name: String @fake(type:companyName)
   industry: String @examples(values: ["IT", "Manufacturing", "Medicine", "Media"])
   employees: [Employee!]
+  banner: String @fake(type: imageUrl, options: {imageCategory: business, imageWidth:500, imageHeight: 200})
+  profie: String @fake(type: lorem),
 }
 
 type Employee {
@@ -26,8 +28,20 @@ type Navigation {
   contact: String @examples(values: ["Contact"])
 }
 
+type Locales {
+  en_en:String @examples(values: ["Global"])
+  nl_nl: String @examples(values: ["Nederland"])
+  de_de: String @examples(values: ["Deutchland"])
+  en_gb: String @examples(values: ["United Kingdom"])
+  en_ie: String @examples(values: ["Ireland"])
+  de_ch: String @examples(values: ["Schweiz"])
+  da_dk: String @examples(values: ["Denmark"])
+  en_us: String @examples(values: ["United States"])
+}
+
 type Query {
   navItems(country: String): Navigation
+  locales: Locales
   employees: [Employee!]
   company(id: ID): Company
   allCompanies: [Company!]

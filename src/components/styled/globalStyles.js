@@ -1,6 +1,11 @@
 import styled from 'vue-styled-components'
 
-export const MenuItme = styled.ul``;
+export const MenuItem = styled.ul``;
+export const StyledTitle = styled.h1`
+  font-size: 400px;
+  margin: 0;
+  padding: 0;
+  `;
 
 export const StyledModal = styled.div`
   position: fixed;
