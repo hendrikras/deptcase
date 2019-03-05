@@ -18,6 +18,7 @@ export const employees = gql`query {
   employees {
     id,
     firstName,
-    lastName
+    lastName,
+    avatar,
   }
 }`

@@ -1,0 +1,34 @@
+type Company {
+  id: ID,
+  name: String @fake(type:companyName)
+  industry: String @examples(values: ["IT", "Manufacturing", "Medicine", "Media"])
+  employees: [Employee!]
+}
+
+type Employee {
+  id: ID
+  firstName: String @fake(type: firstName, locale:en_CA)
+  lastName: String @fake(type: lastName, locale:en_CA)
+  address: String @fake(type:streetAddress, options: { useFullAddress: true })
+  subordinates: [Employee!]
+  company: Company
+  avatar: String @fake(type: imageUrl, options: {imageCategory: cats, imageWidth:200, imageHeight: 200})
+}
+
+type Navigation {
+  home:String @examples(values: ["Home"])
+  work: String @examples(values: ["Work"])
+  over: String @examples(values: ["Over"])
+  services: String @examples(values: ["Services"])
+  partners: String @examples(values: ["Partners"])
+  stories: String @examples(values: ["Stories"])
+  careers: String @examples(values: ["Careers"])
+  contact: String @examples(values: ["Contact"])
+}
+
+type Query {
+  navItems(country: String): Navigation
+  employees: [Employee!]
+  company(id: ID): Company
+  allCompanies: [Company!]
+}

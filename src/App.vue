@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div>
-            <router-link to="/home"> <span>DEPT </span> </router-link>
+            <router-link to="/home"><span>DEPT </span></router-link>
             <router-link to="/contact">
                 <div>Contact</div>
             </router-link>
@@ -16,7 +16,9 @@
                 <h3 slot="header"> DEPT </h3>
                 <div slot="body">
                     <ul>
-                        <li v-for="item in navItems" v-bind:key="item"> {{ item }}</li>
+                        <li v-for="(item, key) in navItems" v-bind:key="key">
+                            <router-link v-bind:to="key">{{ item }}</router-link>
+                        </li>
                     </ul>
                 </div>
             </modal>
@@ -34,7 +36,7 @@
   export default {
     name: 'app',
     apollo: {
-      navItems,
+      navItems
     },
     methods: {
       toggleMenu() {

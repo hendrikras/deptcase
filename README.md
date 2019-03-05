@@ -4,6 +4,7 @@ an implemtation of the DEPT menu design.
 ## Project setup
 ```
 npm install
+npm start
 ```
 
 ### Compiles and hot-reloads for development
