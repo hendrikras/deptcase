@@ -1,5 +1,5 @@
 # deptcase
-an implemtation of the DEPT menu design.
+an implementation of the DEPT menu design.
 
 ## Project setup
 ```
