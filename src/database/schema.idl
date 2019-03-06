@@ -28,6 +28,17 @@ type Navigation {
   contact: String @examples(values: ["Contact"])
 }
 
+type Tags {
+  home:String @examples(values: ["This is us:"])
+  work: String @examples(values: ["Were so proud of:"])
+  over: String @examples(values: ["A little about us"])
+  services: String @examples(values: ["Also.. stuff.."])
+  partners: String @examples(values: ["With friends like these.."])
+  stories: String @examples(values: ["Gather round kids, its storytime"])
+  careers: String @examples(values: ["Just hire me."])
+  contact: String @examples(values: ["Drop us a line"])
+}
+
 type Locales {
   en_en:String @examples(values: ["Global"])
   nl_nl: String @examples(values: ["Nederland"])
@@ -41,6 +52,7 @@ type Locales {
 
 type Query {
   navItems(country: String): Navigation
+  tagLines(country: String): Tags
   locales: Locales
   employees: [Employee!]
   company(id: ID): Company

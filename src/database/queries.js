@@ -14,6 +14,22 @@ export const navItems = gql`
   }
 }`
 
+export const tagLines = gql`
+  query tagLines ($country: String!) {
+   tagLines(country: $country){
+    home
+    work
+    over
+    services
+    partners
+    stories
+    careers
+    contact
+  }
+}`
+
+
+
 export const employees = gql`query {
   employees {
     id,

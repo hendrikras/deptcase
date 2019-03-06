@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <h1>{{page}}</h1>
+  <content-wrapper v-bind:page="page" v-bind:lang="lang">
     <div v-for="{id, firstName, lastName, avatar} in employees" v-bind:key="id">
-      <div>{{ firstName }} {{ lastName  }} </div>
+      <div>{{ firstName }} {{ lastName }}</div>
       <img v-bind:src="avatar" aria-label="avatar"/>
     </div>
-  </div>
+  </content-wrapper>
 </template>
 
 <script>
-  import { employees } from '../../database/queries'
+  import ContentWrapper from '../containers/ContentWrapper.vue'
+  import {employees} from '../../database/queries'
+
   export default {
     props: {
-      page: { type: String, default: 'this is us!' },
+      page: {
+        type: String,
+        default: ''
+      },
+      lang: {
+        type: String,
+        default: ''
+      }
     },
+    components: {ContentWrapper},
     apollo: {
-      employees,
+      employees
     },
     name: "Home"
   }

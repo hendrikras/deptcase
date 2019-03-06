@@ -1,8 +1,50 @@
 import styled from 'vue-styled-components'
 
-export const MenuItem = styled.ul``;
+export const AlignLeftList = styled.ul `{
+  text-align: left;
+}
+`
+
+export const AlignRightList = styled.ul `{
+  text-align: right;
+}
+`
+export const StyledNavBar = styled.div`
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  `;
+
+export const StyledRuler = styled.div`
+   border-bottom: 1px solid;
+  `;
+
+export const StyledNavButton = styled('button', {big: Boolean})`
+    border: 0;
+    background: transparent;
+    font-size: 25px;
+    font-weight: ${({big}) => (big ? '900' : '400')};
+    cursor: pointer;
+    padding-right: 35px;
+  `;
+
+export const StyledMenuButton = styled('a', {big: Boolean})`
+    color: grey;
+    border: 0;
+    background: transparent;
+    font-size: ${({big}) => (big ? '10vh' : '15px')};
+    font-weight: ${({big}) => (big ? '900' : '400')};
+    cursor: pointer;
+    padding-right: 35px;
+    :hover {
+      text-decoration: underline;
+          color: #fff;
+    }
+  `;
+
 export const StyledTitle = styled.h1`
-  font-size: 400px;
+  font-size: 200px;
   margin: 0;
   padding: 0;
   `;
@@ -102,9 +144,12 @@ export const BurgerContainer = styled.div`
 `
 
 export const Burger = styled.div`
+float: right;
   width: 20px;
   height: 20px;
   position: relative;
+  top: -25px;
+  right: -20px;
   span {
     height: 2px;
     width: 24px;
@@ -114,31 +159,28 @@ export const Burger = styled.div`
   }
 `
 
-export const BurgerLineRight = styled('span', { open: Boolean })`
+export const BurgerLineRight = styled('span', {open: Boolean})`
   top: 0;
-  ${props =>
-  props.open &&
+  ${({open}) => open &&
   `
         top : 9px;
         transform : rotate(45deg);
     `};
 `
 
-export const BurgerLineLeft = styled('span', { open: Boolean })`
+export const BurgerLineLeft = styled('span', {open: Boolean})`
   bottom: 0;
-  ${props =>
-  props.open &&
+  ${({open}) => open &&
   `
         bottom : 9px;
         transform : rotate(-45deg);
     `};
 `
 
-export const BurgerLineMiddle = styled('span', { open: Boolean })`
+export const BurgerLineMiddle = styled('span', {open: Boolean})`
   top: calc(50% - 1px);
   opacity: 1;
-  ${props =>
-  props.open &&
+  ${({open}) => open &&
   `
         opacity : 0;
     `};
@@ -150,7 +192,7 @@ export const Column = styled.div`
   align-items: center;
 `
 
-export const Row = styled.div`
+export const Row = styled('div', {ruler: Boolean})`
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -169,9 +211,13 @@ export const Row = styled.div`
       order: 1;
     }
   }
+${({ruler}) => ruler &&
+  `
+   border-bottom : 1px solid;
+    `};
 `
 
-export const FlexRow = styled('div', { open: Boolean })`
+export const FlexRow = styled('div', {open: Boolean})`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -188,8 +234,7 @@ export const FlexRow = styled('div', { open: Boolean })`
     font-weight: bold;
     text-decoration: none;
   }
-  ${props =>
-  props.open &&
+  ${({open}) => open &&
   `
         display : flex;
     `};
