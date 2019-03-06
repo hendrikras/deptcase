@@ -28,14 +28,24 @@ export const tagLines = gql`
   }
 }`
 
-
+export const getArticle = gql`
+  query getArticle ($country: String!, $id: String!) {
+   getArticle(country: $country, id: $id){
+    id
+    title
+    banner
+    profile
+  }
+}`
 
 export const employees = gql`query {
   employees {
-    id,
-    firstName,
-    lastName,
-    avatar,
+    id
+    firstName
+    lastName
+    avatar
+    role
+    profile
   }
 }`
 
@@ -55,9 +65,11 @@ export const locales = gql`query {
 
 export const allCompanies = gql`query allCompanies{
   allCompanies {
-    id,
-    name,
-    industry,
+    id
+    name
+    industry
+    banner
+    profile
   }
 }`
 

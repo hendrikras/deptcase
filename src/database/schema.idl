@@ -3,8 +3,8 @@ type Company {
   name: String @fake(type:companyName)
   industry: String @examples(values: ["IT", "Manufacturing", "Medicine", "Media"])
   employees: [Employee!]
-  banner: String @fake(type: imageUrl, options: {imageCategory: business, imageWidth:500, imageHeight: 200})
-  profie: String @fake(type: lorem),
+  banner: String @fake(type: imageUrl, options: {imageCategory: business, imageWidth:200, imageHeight: 750})
+  profile: String @fake(type: lorem),
 }
 
 type Employee {
@@ -14,7 +14,9 @@ type Employee {
   address: String @fake(type:streetAddress, options: { useFullAddress: true })
   subordinates: [Employee!]
   company: Company
-  avatar: String @fake(type: imageUrl, options: {imageCategory: cats, imageWidth:200, imageHeight: 200})
+  avatar: String @fake(type: imageUrl, options: {imageCategory: cats, imageWidth:250, imageHeight: 250})
+  role: String @fake(type: jobTitle),
+  profile: String @fake(type: lorem),
 }
 
 type Navigation {
@@ -50,9 +52,17 @@ type Locales {
   en_us: String @examples(values: ["United States"])
 }
 
+type Article {
+  id: ID,
+  title: String @fake(type:productMaterial)
+  banner: String @fake(type: imageUrl, options: { imageWidth:300, imageHeight: 750})
+  profile: String @fake(type: lorem),
+}
+
 type Query {
   navItems(country: String): Navigation
   tagLines(country: String): Tags
+  getArticle(country: String, id: String): Article
   locales: Locales
   employees: [Employee!]
   company(id: ID): Company

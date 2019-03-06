@@ -1,6 +1,6 @@
 <template>
   <div>
-    <styled-title>{{page}}</styled-title>
+    <styled-title>{{page.toUpperCase()}}</styled-title>
     <h2 v-if="tagLines"> {{ tagLines[page] }}</h2>
     <slot>
       default content
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {tagLines as query, employees} from '../../database/queries'
+  import {tagLines as query} from '../../database/queries'
   import {StyledTitle} from '../styled/globalStyles'
 
   export default {
@@ -32,7 +32,6 @@
       StyledTitle
     },
     apollo: {
-      employees,
       tagLines: {
         query,
         variables() {

@@ -1,14 +1,20 @@
 <template>
   <content-wrapper v-bind:page="page" v-bind:lang="lang">
-    <div v-for="{id, firstName, lastName, avatar} in employees" v-bind:key="id">
-      <div>{{ firstName }} {{ lastName }}</div>
-      <img v-bind:src="avatar" aria-label="avatar"/>
-    </div>
+    <row v-for="{id, firstName, lastName, avatar, role, profile} in employees" v-bind:key="id">
+      <column>
+        <header-title>{{ firstName }} {{ lastName }}</header-title>
+        <img v-bind:src="avatar" aria-label="avatar"/></column>
+      <column>
+        <h4>{{ role }}</h4>
+        <content-text>{{ profile }}</content-text>
+      </column>
+    </row>
   </content-wrapper>
 </template>
 
 <script>
   import ContentWrapper from '../containers/ContentWrapper.vue'
+  import {Column, ContentText, HeaderTitle, Row} from '../styled/globalStyles'
   import {employees} from '../../database/queries'
 
   export default {
@@ -22,7 +28,13 @@
         default: ''
       }
     },
-    components: {ContentWrapper},
+    components: {
+      ContentText,
+      ContentWrapper,
+      Column,
+      HeaderTitle,
+      Row
+    },
     apollo: {
       employees
     },

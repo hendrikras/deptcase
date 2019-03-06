@@ -2,6 +2,7 @@ import styled from 'vue-styled-components'
 
 export const AlignLeftList = styled.ul `{
   text-align: left;
+  @media (max-width: 599px) { display:none; }
 }
 `
 
@@ -14,10 +15,6 @@ export const StyledNavBar = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
-  `;
-
-export const StyledRuler = styled.div`
-   border-bottom: 1px solid;
   `;
 
 export const StyledNavButton = styled('button', {big: Boolean})`
@@ -33,7 +30,7 @@ export const StyledMenuButton = styled('a', {big: Boolean})`
     color: grey;
     border: 0;
     background: transparent;
-    font-size: ${({big}) => (big ? '10vh' : '15px')};
+    font-size: ${({big}) => (big ? '8vh' : '15px')};
     font-weight: ${({big}) => (big ? '900' : '400')};
     cursor: pointer;
     padding-right: 35px;
@@ -41,12 +38,12 @@ export const StyledMenuButton = styled('a', {big: Boolean})`
       text-decoration: underline;
           color: #fff;
     }
-  `;
+`
 
 export const StyledTitle = styled.h1`
-  font-size: 200px;
+  font-size: 9vw;
   margin: 0;
-  padding: 0;
+  padding: 5vw;
   `;
 
 export const StyledModal = styled.div`
@@ -217,26 +214,14 @@ ${({ruler}) => ruler &&
     `};
 `
 
-export const FlexRow = styled('div', {open: Boolean})`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 20%;
-  padding: 16px 0 32px 0;
-  display: none;
-  justify-content: space-around;
-  @media (min-width: 320px) and (max-width: 900px) {
-    width: 50%;
-  }
-  a {
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  ${({open}) => open &&
-  `
-        display : flex;
-    `};
+export const HeaderTitle = styled.h1 `{
+  text-align: left;
+}
 `
 
+export const ContentText = styled.h1 `{
+  font-size: 18px;
+  margin: 24px;
+  text-align: left;
+}
+`
