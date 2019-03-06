@@ -143,3 +143,55 @@ export const BurgerLineMiddle = styled('span', { open: Boolean })`
         opacity : 0;
     `};
 `
+
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  width: 800px;
+  justify-content: space-between;
+  margin: 0 auto;
+  @media (min-width: 320px) and (max-width: 780px) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    div {
+      order: 2;
+    }
+    section {
+      order: 1;
+    }
+  }
+`
+
+export const FlexRow = styled('div', { open: Boolean })`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  padding: 16px 0 32px 0;
+  display: none;
+  justify-content: space-around;
+  @media (min-width: 320px) and (max-width: 900px) {
+    width: 50%;
+  }
+  a {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  ${props =>
+  props.open &&
+  `
+        display : flex;
+    `};
+`
+

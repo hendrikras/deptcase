@@ -2,9 +2,9 @@
     <div id="app">
         <div v-if="$apollo.loading">Loading...</div>
         <div v-else>
-            <router-link to="/home">
+            <a @click="setPage('home', false)">
                 <span>DEPT</span>
-            </router-link>
+            </a>
                 <a @click="setPage('contact', false)">Contact</a>
             <div @click="toggleMenu()">menu
 
@@ -18,12 +18,12 @@
                 <div slot="body">
                     <ul>
                         <li v-for="(item, key) in locales" v-bind:key="key">
-                            <a @click="setLang(key)">{{ item }}</a>
+                            <a v-if="key !== '__typename'" @click="setLang(key)">{{ item }}</a>
                         </li>
                     </ul>
                     <ul>
                         <li v-for="(item, key) in navItems" v-bind:key="key">
-                            <button @click="setPage(key)">{{ item }}</button>
+                            <button v-if="key !== '__typename'" @click="setPage(key)">{{ item }}</button>
                         </li>
                     </ul>
                 </div>
@@ -41,13 +41,17 @@
 
   export default {
     name: 'app',
-    mounted() {console.log(4, locales )},
     data() {
+      const { currentRoute: { name, params: { lang } } } = this.$router
       return {
-        locale: 'en_en',
-        page: "home",
+        locale: lang,
+        page: name,
         showModal: false
       }
+    },
+    mounted() {
+      // const { currentRoute: { name, params: { lang } } } = this.$router
+      this.setRoute(this.page, this.lang)
     },
     apollo: {
       locales,

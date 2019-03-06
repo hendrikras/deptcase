@@ -11,7 +11,9 @@
 <script>
   import { employees } from '../../database/queries'
   export default {
-    props: ['lang', 'page'],
+    props: {
+      page: { type: String, default: 'this is us!' },
+    },
     apollo: {
       employees,
     },
