@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
-        <div v-if="$apollo.loading">Loading...</div>
-        <styled-nav-bar v-else>
+    <div v-if="$apollo.loading">Loading...</div>
+    <div id="app" v-else>
+        <styled-nav-bar >
             <row :ruler="true">
                 <column>
                     <styled-nav-button :big="true" @click="setPage('home', false)">
