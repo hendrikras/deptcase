@@ -5,7 +5,7 @@
             <row :ruler="true">
                 <column>
                     <styled-nav-button :big="true" @click="setPage('home', false)">
-                        <span>DEPT</span>
+                        <span>DONT</span>
                     </styled-nav-button>
                 </column>
                 <column>
@@ -25,7 +25,7 @@
         </styled-nav-bar>
         <template v-if="showModal">
             <modal @close="toggleMenu()">
-                <h3 slot="header"> DEPT </h3>
+                <h3 slot="header">DONT </h3>
                 <row slot="body">
                     <column>
                         <align-left-list>

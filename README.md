@@ -1,5 +1,5 @@
 # deptcase
-an implementation of the DEPT menu design.
+an implementation of a portfolio website with a graphQL backend.
 
 ## Project setup
 ```
